@@ -46,6 +46,13 @@ public class MainCamera : MonoBehaviour
             transform.RotateAround(Vector3.zero, -Vector3.up, x * sensitivity);
             transform.RotateAround(Vector3.zero, transform.right, y * sensitivity);
         }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0f)
+        {
+            Vector3 forward = Camera.main.transform.forward;
+            transform.position += forward * scroll;
+        }
     }
 
 }
